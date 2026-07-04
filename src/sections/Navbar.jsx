@@ -1,72 +1,86 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-function Navigation() {
+import { navItems, profile } from "../constants";
+
+function Navigation({ onNavigate }) {
   return (
     <ul className="nav-ul">
-      <li className="nav-li">
-        <a className="nav-link" href="#home">
-          Home
-        </a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#about">
-          About
-        </a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#work">
-          Work
-        </a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#contact">
-          Contact
-        </a>
-      </li>
+      {navItems.map((item) => (
+        <li className="nav-li" key={item.href}>
+          <a className="nav-link" href={item.href} onClick={onNavigate}>
+            {item.label}
+          </a>
+        </li>
+      ))}
     </ul>
   );
 }
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
-      <div className="mx-auto c-space max-w-7xl">
-        <div className="flex items-center justify-between py-2 sm:py-0">
-          <a
-            href="/"
-            className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
-          >
-            Ali
+    <header className="fixed inset-x-0 top-3 z-50 px-3">
+      <div className="mx-auto max-w-7xl rounded-full border border-white/10 bg-primary/55 px-4 shadow-2xl shadow-black/25 backdrop-blur-xl sm:px-6">
+        <div className="flex items-center justify-between py-3">
+          <a href="#home" className="group flex items-center gap-3">
+            <span className="grid size-9 place-items-center rounded-full border border-white/15 bg-white/10 text-sm font-bold text-white transition group-hover:border-aqua/60">
+              AS
+            </span>
+            <span className="hidden text-sm font-semibold tracking-wide text-white sm:block">
+              {profile.name}
+            </span>
           </a>
+
+          <nav className="hidden lg:flex">
+            <Navigation />
+          </nav>
+
+          <div className="hidden items-center gap-3 lg:flex">
+            <a className="nav-action" href={profile.resume} target="_blank" rel="noreferrer">
+              Resume
+            </a>
+            <a className="nav-action nav-action-primary" href={`mailto:${profile.email}`}>
+              Connect
+            </a>
+          </div>
+
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
+            onClick={() => setIsOpen((value) => !value)}
+            className="grid size-10 cursor-pointer place-items-center rounded-full border border-white/10 bg-white/10 text-neutral-200 transition hover:border-aqua/60 lg:hidden"
+            aria-label="Toggle navigation"
+            aria-expanded={isOpen}
           >
             <img
-              src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
-              className="w-6 h-6"
-              alt="toggle"
+              src={isOpen ? "/assets/close.svg" : "/assets/menu.svg"}
+              className="size-5"
+              alt=""
             />
           </button>
-          <nav className="hidden sm:flex">
-            <Navigation />
-          </nav>
         </div>
       </div>
+
       {isOpen && (
         <motion.div
-          className="block overflow-hidden text-center sm:hidden"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          style={{ maxHeight: "100vh" }}
-          transition={{ duration: 1 }}
+          className="mx-auto mt-3 max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-primary/90 px-5 py-5 text-center shadow-2xl shadow-black/30 backdrop-blur-xl lg:hidden"
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
         >
-          <nav className="pb-5">
-            <Navigation />
+          <nav>
+            <Navigation onNavigate={() => setIsOpen(false)} />
           </nav>
+          <div className="mt-5 grid grid-cols-2 gap-3">
+            <a className="nav-action" href={profile.resume} target="_blank" rel="noreferrer">
+              Resume
+            </a>
+            <a className="nav-action nav-action-primary" href={`mailto:${profile.email}`}>
+              Connect
+            </a>
+          </div>
         </motion.div>
       )}
-    </div>
+    </header>
   );
 };
 

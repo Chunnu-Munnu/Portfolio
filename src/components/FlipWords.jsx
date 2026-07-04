@@ -1,6 +1,6 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { twMerge } from "tailwind-merge";
 export const FlipWords = ({ words, duration = 3000, className }) => {
   const [currentWord, setCurrentWord] = useState(words[0]);
@@ -42,10 +42,10 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
         }}
         exit={{
           opacity: 0,
-          y: -40,
-          x: 40,
-          filter: "blur(8px)",
-          scale: 2,
+          y: -18,
+          x: 0,
+          filter: "blur(2px)",
+          scale: 1,
           position: "absolute",
         }}
         className={twMerge("z-10 inline-block relative text-left", className)}

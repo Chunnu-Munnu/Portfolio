@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ProjectDetails from "./ProjectDetails";
 
 const Project = ({
   title,
+  category,
   description,
   subDescription,
   href,
@@ -14,27 +15,33 @@ const Project = ({
   return (
     <>
       <div
-        className="flex-wrap items-center justify-between py-10 space-y-14 sm:flex sm:space-y-0"
+        className="group flex-wrap items-center justify-between gap-6 py-10 sm:flex"
         onMouseEnter={() => setPreview(image)}
         onMouseLeave={() => setPreview(null)}
       >
-        <div>
-          <p className="text-2xl">{title}</p>
-          <div className="flex gap-5 mt-2 text-sand">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aqua/80">
+            {category}
+          </p>
+          <h3 className="mt-3 text-2xl font-semibold text-white md:text-3xl">{title}</h3>
+          <p className="mt-3 max-w-2xl text-neutral-400">{description}</p>
+          <div className="mt-4 flex flex-wrap gap-2 text-sm text-sand">
             {tags.map((tag) => (
-              <span key={tag.id}>{tag.name}</span>
+              <span className="skill-pill" key={tag}>
+                {tag}
+              </span>
             ))}
           </div>
         </div>
         <button
           onClick={() => setIsHidden(true)}
-          className="flex items-center gap-1 cursor-pointer hover-animation"
+          className="mt-8 flex cursor-pointer items-center gap-2 rounded-lg border border-white/10 px-4 py-3 text-sm font-medium text-white transition hover:border-aqua/60 hover:bg-white/10 sm:mt-0"
         >
-          Read More
-          <img src="assets/arrow-right.svg" className="w-5" />
+          Read more
+          <img src="/assets/arrow-right.svg" className="w-5" alt="" />
         </button>
       </div>
-      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full" />
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-700 to-transparent" />
       {isHidden && (
         <ProjectDetails
           title={title}

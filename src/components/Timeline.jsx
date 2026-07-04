@@ -1,6 +1,6 @@
 "use client";
-import { useScroll, useTransform, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { useScroll, useTransform, motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 
 export const Timeline = ({ data }) => {
   const ref = useRef(null);
@@ -23,8 +23,9 @@ export const Timeline = ({ data }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div className="c-space section-spacing" ref={containerRef}>
-      <h2 className="text-heading">My Work Experience</h2>
+    <div className="c-space section-spacing" id="experience" ref={containerRef}>
+      <div className="section-kicker">Experience</div>
+      <h2 className="text-heading">Internship, campus work, and leadership.</h2>
       <div ref={ref} className="relative pb-20">
         {data.map((item, index) => (
           <div
@@ -35,7 +36,7 @@ export const Timeline = ({ data }) => {
               <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -left-[15px] bg-midnight">
                 <div className="w-4 h-4 p-2 border rounded-full bg-neutral-800 border-neutral-700" />
               </div>
-              <div className="flex-col hidden gap-2 text-xl font-bold md:flex md:pl-20 md:text-4xl text-neutral-300">
+              <div className="hidden flex-col gap-2 text-xl font-bold text-neutral-300 md:flex md:pl-20 md:text-4xl">
                 <h3>{item.date}</h3>
                 <h3 className="text-3xl text-neutral-400">{item.title}</h3>
                 <h3 className="text-3xl text-neutral-500">{item.job}</h3>
@@ -48,7 +49,7 @@ export const Timeline = ({ data }) => {
                 <h3>{item.job}</h3>
               </div>
               {item.contents.map((content, index) => (
-                <p className="mb-3 font-normal text-neutral-400" key={index}>
+                <p className="mb-3 rounded-lg border border-white/10 bg-white/[0.03] p-4 font-normal leading-7 text-neutral-300" key={index}>
                   {content}
                 </p>
               ))}

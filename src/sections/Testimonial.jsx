@@ -1,54 +1,52 @@
 import { twMerge } from "tailwind-merge";
 import Marquee from "../components/Marquee";
-import { reviews } from "../constants";
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+import { achievements } from "../constants";
 
-const ReviewCard = ({ img, name, username, body }) => {
+const firstRow = achievements.slice(0, achievements.length / 2);
+const secondRow = achievements.slice(achievements.length / 2);
+
+const AchievementCard = ({ body, index }) => {
   return (
     <figure
       className={twMerge(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 border-gray-50/[.1] bg-gradient-to-r bg-indigo to-storm hover:bg-royal hover-animation"
+        "relative flex h-36 w-80 flex-col justify-between overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-indigo to-storm p-5 shadow-xl shadow-black/20 transition hover:border-aqua/50"
       )}
     >
-      <div className="flex flex-row items-center gap-2">
-        <img
-          className="rounded-full bg-white/10"
-          width="32"
-          height="32"
-          alt=""
-          src={img}
-        />
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium text-white">
-            {name}
-          </figcaption>
-          <p className="text-xs font-medium text-white/40">{username}</p>
-        </div>
-      </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <figcaption className="text-xs font-semibold uppercase tracking-[0.2em] text-aqua/80">
+        Signal {String(index + 1).padStart(2, "0")}
+      </figcaption>
+      <blockquote className="text-sm leading-6 text-neutral-100">{body}</blockquote>
     </figure>
   );
 };
 
-export default function Testimonial() {
+export default function Achievements() {
   return (
-    <div className="items-start mt-25 md:mt-35 c-space">
-      <h2 className="text-heading">Hear From My Clients</h2>
-      <div className="relative flex flex-col items-center justify-center w-full mt-12 overflow-hidden">
-        <Marquee pauseOnHover className="[--duration:20s]">
-          {firstRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+    <section className="mt-25 c-space md:mt-35" id="wins">
+      <div className="section-kicker">Wins</div>
+      <h2 className="text-heading">Competitive proof across domains.</h2>
+      <p className="mt-4 max-w-3xl text-neutral-400">
+        A compact record of hackathons, datathons, CTFs, and technical competitions
+        that shaped how I build under pressure.
+      </p>
+      <div className="relative mt-12 flex w-full flex-col items-center justify-center overflow-hidden">
+        <Marquee pauseOnHover className="[--duration:24s]">
+          {firstRow.map((achievement, index) => (
+            <AchievementCard key={achievement} body={achievement} index={index} />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]">
-          {secondRow.map((review) => (
-            <ReviewCard key={review.username} {...review} />
+        <Marquee reverse pauseOnHover className="[--duration:24s]">
+          {secondRow.map((achievement, index) => (
+            <AchievementCard
+              key={achievement}
+              body={achievement}
+              index={index + firstRow.length}
+            />
           ))}
         </Marquee>
-        <div className="absolute inset-y-0 left-0 w-1/4 pointer-events-none bg-gradient-to-r from-primary"></div>
-        <div className="absolute inset-y-0 right-0 w-1/4 pointer-events-none bg-gradient-to-l from-primary"></div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-primary" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-primary" />
       </div>
-    </div>
+    </section>
   );
 }

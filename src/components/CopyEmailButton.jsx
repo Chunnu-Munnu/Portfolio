@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { profile } from "../constants";
+
 const CopyEmailButton = () => {
   const [copied, setCopied] = useState(false);
-  const email = "Your Email Address";
+  const email = profile.email;
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email);
@@ -17,7 +19,7 @@ const CopyEmailButton = () => {
       onClick={copyToClipboard}
       whileHover={{ y: -5 }}
       whileTap={{ scale: 1.05 }}
-      className="relative px-1 py-4 text-sm text-center rounded-full font-extralight bg-primary w-[12rem] cursor-pointer overflow-hidden"
+      className="relative w-[12rem] cursor-pointer overflow-hidden rounded-lg border border-white/10 bg-primary px-1 py-4 text-center text-sm font-medium text-white"
     >
       <AnimatePresence mode="wait">
         {copied ? (
@@ -29,8 +31,8 @@ const CopyEmailButton = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.1, ease: "easeInOut" }}
           >
-            <img src="assets/copy-done.svg" className="w-5" alt="copy Icon" />
-            Email has Copied
+            <img src="/assets/copy-done.svg" className="w-5" alt="" />
+            Email copied
           </motion.p>
         ) : (
           <motion.p
@@ -41,8 +43,8 @@ const CopyEmailButton = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.1 }}
           >
-            <img src="assets/copy.svg" className="w-5" alt="copy icon" />
-            Copy Email Address
+            <img src="/assets/copy.svg" className="w-5" alt="" />
+            Copy email
           </motion.p>
         )}
       </AnimatePresence>
