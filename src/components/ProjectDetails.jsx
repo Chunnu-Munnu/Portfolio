@@ -5,6 +5,7 @@ const ProjectDetails = ({
   description,
   subDescription,
   image,
+  imageFit = "cover",
   tags,
   href,
   closeModal,
@@ -23,7 +24,13 @@ const ProjectDetails = ({
         >
           <img src="/assets/close.svg" className="size-5" alt="" />
         </button>
-        <img src={image} alt="" className="h-60 w-full object-cover" />
+        <img
+          src={image}
+          alt=""
+          className={`h-60 w-full bg-white/[0.03] ${
+            imageFit === "contain" ? "object-contain p-3" : "object-cover"
+          }`}
+        />
         <div className="p-6 md:p-8">
           <h3 className="text-3xl font-bold text-white">{title}</h3>
           <p className="mt-3 text-neutral-300">{description}</p>

@@ -30,9 +30,10 @@ export const mediaMoments = [
   {
     title: "JPMC Technology Innovation Forum 2026",
     label: "Technology forum",
-    image: "/assets/amogh/jpmc-tech-forum.webp",
-    position: "25% center",
+    image: "/assets/amogh/jpmc-tech-forum-final.jpg",
+    position: "center 30%",
     variant: "portrait",
+    gridArea: "jpmc",
     description: "Represented work at JPMorgan Chase Technology Innovation Forum 2026 India, connecting product engineering with enterprise-grade technical expectations.",
   },
   {
@@ -41,6 +42,7 @@ export const mediaMoments = [
     image: "/assets/amogh/drone-demo.webp",
     position: "center center",
     variant: "wide",
+    gridArea: "drone",
     description: "Built and demonstrated drone-oriented project work, connecting hardware, computer vision thinking, and real-time operational use cases.",
   },
   {
@@ -49,6 +51,7 @@ export const mediaMoments = [
     image: "/assets/amogh/pitch-room.webp",
     position: "center center",
     variant: "wide",
+    gridArea: "pitch",
     description: "Explaining a technical product problem, architecture, and business angle in a room of evaluators.",
   },
   {
@@ -56,6 +59,7 @@ export const mediaMoments = [
     label: "1st place",
     image: "/assets/amogh/tech-solstice-trophy.webp",
     position: "center center",
+    gridArea: "solstice",
     description: "Winner at Tech Solstice, MIT Bengaluru, with a cash prize and a fast prototype-to-pitch sprint.",
   },
   {
@@ -63,28 +67,35 @@ export const mediaMoments = [
     label: "Blockchain and ML",
     image: "/assets/amogh/vyuhatech-stage.webp",
     position: "center center",
-    variant: "wide",
+    variant: "portrait",
+    gridArea: "vyuha",
     description: "National-level hackathon recognition for a secure command logging system with blockchain auditability.",
-  },
-  {
-    title: "Mystara team sprint",
-    label: "Hackathon",
-    image: "/assets/amogh/mystara-team.webp",
-    position: "center center",
-    description: "Team build environment at PES University, balancing product ideation, engineering, and demo readiness.",
   },
   {
     title: "VisionX command logging demo",
     label: "Defense-tech prototype",
     image: "/assets/amogh/visionx-demo.webp",
     position: "center center",
+    variant: "wide",
+    gridArea: "visionx",
     description: "Multi-screen demo environment for the satellite command logging and validation project.",
+  },
+  {
+    title: "Mystara team sprint",
+    label: "Hackathon",
+    image: "/assets/amogh/mystara-team.webp",
+    position: "center center",
+    variant: "wide",
+    gridArea: "mystara",
+    description: "Team build environment at PES University, balancing product ideation, engineering, and demo readiness.",
   },
   {
     title: "MUN recognition",
     label: "Leadership",
     image: "/assets/amogh/mun-recognition.webp",
     position: "center center",
+    variant: "wide",
+    gridArea: "mun",
     description: "High Commendation recognition from Model United Nations, strengthening public speaking and negotiation.",
   },
 ];
@@ -123,7 +134,7 @@ export const myProjects = [
       "Built telemetry and root-cause workflows using Prometheus, Loki, Promtail, and Jaeger.",
     ],
     href: "",
-    image: "/assets/amogh/jpmc-tech-forum.webp",
+    image: "/assets/amogh/jpmc-tech-forum-final.jpg",
     tags: ["Python", "Docker", "Prometheus", "JPMC"],
   },
   {
@@ -139,7 +150,7 @@ export const myProjects = [
       "Mapped SHAP explainability to the Five Cs of credit with automated recommendations and risk-based pricing.",
     ],
     href: "",
-    image: "/assets/projects/elearning.jpg",
+    image: "/assets/projects/intelli-credit-dashboard.png",
     tags: ["React", "FastAPI", "MongoDB", "ML"],
   },
   {
@@ -170,7 +181,8 @@ export const myProjects = [
       "Reached finalist status in the Future of Work Hackathon, placing in the top 1.5%.",
     ],
     href: "",
-    image: "/assets/projects/wordpress-theme.jpg",
+    image: "/assets/amogh/questify-future-work.webp",
+    imageFit: "cover",
     tags: ["MERN", "Tesseract", "Gemini API", "OCR"],
   },
   {
@@ -185,7 +197,8 @@ export const myProjects = [
       "Won 1st place at the PES University ML Project Competition.",
     ],
     href: "",
-    image: "/assets/projects/blazor-app.jpg",
+    image: "/assets/amogh/paml-ocular-ui.webp",
+    imageFit: "contain",
     tags: ["Python", "TensorFlow", "CNN", "Healthcare"],
   },
   {

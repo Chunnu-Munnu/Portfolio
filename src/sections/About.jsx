@@ -1,47 +1,45 @@
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Globe } from "../components/globe";
-import { mediaMoments, profile, skillGroups } from "../constants";
+import { profile } from "../constants";
 
 const About = () => {
   return (
-    <section className="c-space section-spacing" id="about">
+    <section className="c-space mt-24 md:mt-32" id="about">
       <div className="section-kicker">About</div>
       <h2 className="text-heading">Engineer for high-signal systems.</h2>
       <p className="mt-4 max-w-3xl text-neutral-400">
-        I am a CSE student at PES University building across AI, data engineering,
-        full-stack product work, and security-minded systems. My strongest work sits
-        where messy data, model behavior, and usable interfaces need to meet.
+        CSE student at PES University building across AI, data engineering,
+        full-stack product work, and security-minded systems.
       </p>
 
-      <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem]">
-        <div className="grid-default-color grid-1">
+      <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-4 md:auto-rows-[13rem]">
+        <div className="grid-default-color md:col-span-2 relative overflow-hidden hover:-translate-y-1 duration-200 h-[13rem] md:h-full">
           <img
             src="/assets/coding-pov.png"
-            className="absolute -right-20 top-2 w-[32rem] opacity-45 mix-blend-screen md:-right-24 md:top-6"
+            className="absolute -right-16 top-0 w-[26rem] opacity-40 mix-blend-screen"
             alt=""
           />
-          <div className="relative z-10 mt-auto max-w-md">
-            <p className="headtext">Product-minded technical range</p>
+          <div className="relative z-10 mt-auto max-w-sm">
+            <p className="headtext">Product-minded range</p>
             <p className="subtext">
-              I move comfortably from model prototypes to deployable frontend flows,
-              pipeline orchestration, observability, and explainable AI systems.
+              From model prototypes to frontend flows, pipeline orchestration,
+              observability, and explainable AI.
             </p>
           </div>
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-indigo" />
         </div>
 
-        <div className="grid-default-color grid-2">
+        <div className="grid-default-color md:col-span-1 relative overflow-hidden hover:-translate-y-1 duration-200 h-[13rem] md:h-full">
           <div className="relative z-10 flex size-full flex-col justify-between">
             <div>
-              <p className="headtext">Engineering stack</p>
-              <p className="subtext">
-                Clean, fast, and practical tooling across AI, web, data, cloud-style
-                pipelines, and security-minded product work.
+              <p className="headtext">Stack</p>
+              <p className="subtext text-xs">
+                AI, web, data, cloud, and security tooling.
               </p>
             </div>
-            <div className="mt-5 grid grid-cols-2 gap-2 text-sm md:grid-cols-3">
-              {["Python", "React", "FastAPI", "dbt", "Airflow", "Spark", "Databricks", "Solidity", "Docker"].map((skill) => (
-                <span className="skill-pill justify-center" key={skill}>
+            <div className="mt-3 flex flex-wrap gap-1.5 text-xs">
+              {["Python", "React", "FastAPI", "dbt", "Airflow", "Spark", "Docker", "Solidity"].map((skill) => (
+                <span className="skill-pill text-[0.65rem] px-2 py-1" key={skill}>
                   {skill}
                 </span>
               ))}
@@ -49,59 +47,37 @@ const About = () => {
           </div>
         </div>
 
-        <div className="grid-black-color grid-3">
-          <div className="relative z-10 w-[58%]">
+        <div className="grid-black-color md:col-span-1 relative overflow-hidden hover:-translate-y-1 duration-200 h-[13rem] md:h-full">
+          <div className="relative z-10 w-full">
             <p className="headtext">Bengaluru, India</p>
-            <p className="subtext">
-              Based at PES University and open to internships, applied AI work, and
-              engineering collaborations.
+            <p className="subtext text-xs">
+              PES University — open to internships and collaborations.
             </p>
           </div>
-          <figure className="absolute left-[30%] top-[5%] opacity-90">
+          <figure className="absolute right-[-20%] top-[10%] w-[70%] aspect-square opacity-80">
             <Globe />
           </figure>
         </div>
+      </div>
 
-        <div className="grid-special-color grid-4">
-          <div className="flex size-full flex-col items-center justify-center gap-4">
-            <p className="text-center headtext">Reach me directly</p>
+      <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid-special-color relative overflow-hidden hover:-translate-y-1 duration-200 h-[5rem]">
+          <div className="flex size-full flex-row items-center justify-center gap-6">
+            <p className="headtext text-base m-0">Reach me directly</p>
             <CopyEmailButton />
             <a className="text-sm text-white/70 transition hover:text-white" href={`mailto:${profile.email}`}>
               {profile.email}
             </a>
           </div>
         </div>
-
-        <div className="grid-default-color grid-5">
-          <div className="relative z-10 max-w-[55%]">
-            <p className="headtext">Systems I like building</p>
-            <p className="subtext">
-              AI products, data pipelines, observability surfaces, fraud and risk
-              engines, OCR tools, and computer vision applications.
+        <div className="grid-default-color relative overflow-hidden hover:-translate-y-1 duration-200 h-[5rem]">
+          <div className="flex size-full flex-row items-center gap-4">
+            <p className="headtext text-base m-0">Systems I build</p>
+            <p className="subtext text-xs m-0">
+              AI products · data pipelines · observability · fraud engines · OCR · computer vision
             </p>
           </div>
-          <img
-            src={mediaMoments[1].image}
-            className="absolute inset-y-6 left-[54%] h-[82%] w-[42%] rounded-lg object-cover opacity-75"
-            alt=""
-            loading="lazy"
-          />
         </div>
-      </div>
-
-      <div className="mt-6 grid gap-4 md:grid-cols-4">
-        {skillGroups.map((group) => (
-          <div className="glass-panel p-5" key={group.title}>
-            <h3 className="text-base font-semibold text-white">{group.title}</h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {group.items.map((item) => (
-                <span className="skill-pill" key={item}>
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );

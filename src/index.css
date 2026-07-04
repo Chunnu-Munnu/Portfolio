@@ -228,7 +228,26 @@ html {
 }
 
 .gallery-grid {
-  @apply grid gap-4 md:grid-cols-3;
+  @apply grid gap-4;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 18rem);
+  grid-template-areas:
+    "jpmc    drone    drone"
+    "jpmc    pitch    pitch"
+    "solstice vyuha   visionx"
+    "mystara  vyuha   visionx"
+    "mystara  mun     mun";
+}
+
+@media (max-width: 767px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: none;
+  }
+  .gallery-grid > * {
+    grid-area: auto !important;
+  }
 }
 
 .gallery-card {
@@ -240,7 +259,7 @@ html {
 }
 
 .gallery-card-portrait {
-  min-height: 34rem;
+  @apply md:row-span-2;
 }
 
 .gallery-card img {
@@ -248,9 +267,10 @@ html {
 }
 
 .gallery-card-portrait img {
-  object-fit: contain;
-  padding: 1rem;
-  background: linear-gradient(135deg, rgba(22, 26, 49, 0.9), rgba(3, 4, 18, 0.95));
+  object-fit: cover;
+  object-position: center 25%;
+  padding: 0;
+  background: none;
 }
 
 .gallery-card:hover img {
@@ -300,21 +320,6 @@ html {
 }
 
 /* About Section */
-.grid-1 {
-  @apply row-span-2 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
-}
-.grid-2 {
-  @apply row-span-1 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
-}
-.grid-3 {
-  @apply row-span-1 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
-}
-.grid-4 {
-  @apply row-span-1 md:col-span-2 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
-}
-.grid-5 {
-  @apply row-span-1 md:col-span-4 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
-}
 
 .grid-default-color {
   @apply flex overflow-hidden rounded-lg border border-white/10 bg-gradient-to-b from-storm to-indigo p-6 shadow-2xl shadow-black/20;

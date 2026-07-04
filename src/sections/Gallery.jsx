@@ -15,26 +15,35 @@ const Gallery = () => {
       </div>
 
       <div className="gallery-grid mt-12">
-        {mediaMoments.map((moment, index) => (
-          <article
-            className={`gallery-card ${moment.variant === "wide" ? "gallery-card-wide" : ""} ${
-              moment.variant === "portrait" ? "gallery-card-portrait" : ""
-            }`}
-            key={moment.title}
-          >
-            <img
-              src={moment.image}
-              alt={moment.title}
-              loading={index < 2 ? "eager" : "lazy"}
-              style={{ objectPosition: moment.position || "center center" }}
-            />
-            <div className="gallery-card-content">
-              <span>{moment.label}</span>
-              <h3>{moment.title}</h3>
-              <p>{moment.description}</p>
-            </div>
-          </article>
-        ))}
+        {mediaMoments.map((moment, index) => {
+          const classes = [
+            "gallery-card",
+            moment.variant === "wide" ? "gallery-card-wide" : "",
+            moment.variant === "portrait" ? "gallery-card-portrait" : "",
+          ]
+            .filter(Boolean)
+            .join(" ");
+
+          return (
+            <article
+              className={classes}
+              key={moment.title}
+              style={moment.gridArea ? { gridArea: moment.gridArea } : undefined}
+            >
+              <img
+                src={moment.image}
+                alt={moment.title}
+                loading={index < 2 ? "eager" : "lazy"}
+                style={{ objectPosition: moment.position || "center center" }}
+              />
+              <div className="gallery-card-content">
+                <span>{moment.label}</span>
+                <h3>{moment.title}</h3>
+                <p>{moment.description}</p>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

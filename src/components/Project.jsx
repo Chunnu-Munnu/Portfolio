@@ -8,6 +8,7 @@ const Project = ({
   subDescription,
   href,
   image,
+  imageFit = "cover",
   tags,
 }) => {
   const [isHidden, setIsHidden] = useState(false);
@@ -34,7 +35,9 @@ const Project = ({
           src={image}
           alt=""
           loading="lazy"
-          className="hidden h-44 w-full rounded-lg border border-white/10 object-cover opacity-85 lg:block"
+          className={`hidden h-44 w-full rounded-lg border border-white/10 bg-white/[0.03] opacity-85 lg:block ${
+            imageFit === "contain" ? "object-contain p-2" : "object-cover"
+          }`}
         />
         <button
           onClick={() => setIsHidden(true)}
@@ -51,6 +54,7 @@ const Project = ({
           description={description}
           subDescription={subDescription}
           image={image}
+          imageFit={imageFit}
           tags={tags}
           href={href}
           closeModal={() => setIsHidden(false)}
