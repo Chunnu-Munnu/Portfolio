@@ -22,10 +22,8 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleMailClick = () => {
     setShowAlert(true);
-    window.location.href = mailtoHref;
     setTimeout(() => setShowAlert(false), 3500);
   };
 
@@ -56,7 +54,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="glass-panel p-6 md:p-8" onSubmit={handleSubmit}>
+        <form className="glass-panel p-6 md:p-8" onSubmit={(e) => e.preventDefault()}>
           <div className="mb-5">
             <label htmlFor="name" className="field-label">
               Full name
@@ -104,9 +102,9 @@ const Contact = () => {
               required
             />
           </div>
-          <button type="submit" className="btn-primary w-full">
+          <a href={mailtoHref} onClick={handleMailClick} className="btn-primary w-full">
             Connect with me
-          </button>
+          </a>
         </form>
       </div>
     </section>

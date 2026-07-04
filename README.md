@@ -24,14 +24,16 @@ http://localhost:5173
 | Framework | React 19, Vite |
 | Styling | Tailwind CSS v4, custom glass UI utilities |
 | Animation | Motion for React |
+| 3D | Three.js, React Three Fiber, Drei, desktop-only astronaut hero |
 | Media | Optimized WebP photos from pitches, demos, hackathons, and MUN |
-| Visual Effects | CSS gradients, hover states, draggable cards |
+| Visual Effects | CSS gradients, hover states, contained cobe globe |
 | Contact | Frontend-only `mailto:` routing |
 | Deployment | Vercel-ready static frontend |
 
 ## Features
 
-- Lightweight photo-led hero section using optimized WebP assets.
+- Desktop astronaut hero using a scoped React Three Fiber scene.
+- Lightweight mobile hero without loading the 3D scene.
 - Sticky glass navigation with mobile drawer.
 - Resume download from `public/assets/Amogh_Sharma_Resume.pdf`.
 - Frontend-only contact form that opens an email draft to `amoghrules20@gmail.com`.
@@ -44,7 +46,8 @@ http://localhost:5173
 - Dedicated blockchain project: Missile Command Logging System using Solidity, Python, blockchain audit trails, and ML-based validation.
 - Hackathon, datathon, CTF, and MUN achievement band.
 - Responsive design verified for desktop and mobile.
-- Performance pass completed by removing the old WebGL hero, cobe globe, particle canvas, and unused 3D model.
+- Performance pass completed by removing particle canvas, random hover previews, and unused animation clutter.
+- Globe is kept as a contained card element instead of a full-page effect.
 - Vercel security headers are configured in `vercel.json`.
 
 ## Project Structure
@@ -56,6 +59,8 @@ public/
     amogh/
     projects/
     logos/
+  models/
+    tenhun_falling_spaceman_fanart.glb
 src/
   components/       Reusable UI, animation, modal, and visual components
   constants/        Portfolio content, links, projects, skills, and achievements

@@ -1,4 +1,5 @@
 import CopyEmailButton from "../components/CopyEmailButton";
+import { Globe } from "../components/globe";
 import { mediaMoments, profile, skillGroups } from "../constants";
 
 const About = () => {
@@ -56,12 +57,9 @@ const About = () => {
               engineering collaborations.
             </p>
           </div>
-          <img
-            src={mediaMoments[4].image}
-            className="absolute inset-y-8 left-[38%] h-[78%] w-[58%] rounded-lg object-cover opacity-75"
-            alt=""
-            loading="lazy"
-          />
+          <figure className="absolute left-[30%] top-[5%] opacity-90">
+            <Globe />
+          </figure>
         </div>
 
         <div className="grid-special-color grid-4">
@@ -83,7 +81,7 @@ const About = () => {
             </p>
           </div>
           <img
-            src={mediaMoments[0].image}
+            src={mediaMoments[1].image}
             className="absolute inset-y-6 left-[54%] h-[82%] w-[42%] rounded-lg object-cover opacity-75"
             alt=""
             loading="lazy"

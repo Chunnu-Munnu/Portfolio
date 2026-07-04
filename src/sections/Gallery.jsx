@@ -17,10 +17,17 @@ const Gallery = () => {
       <div className="gallery-grid mt-12">
         {mediaMoments.map((moment, index) => (
           <article
-            className={`gallery-card ${index === 0 || index === 2 ? "gallery-card-wide" : ""}`}
+            className={`gallery-card ${moment.variant === "wide" ? "gallery-card-wide" : ""} ${
+              moment.variant === "portrait" ? "gallery-card-portrait" : ""
+            }`}
             key={moment.title}
           >
-            <img src={moment.image} alt={moment.title} loading={index < 2 ? "eager" : "lazy"} />
+            <img
+              src={moment.image}
+              alt={moment.title}
+              loading={index < 2 ? "eager" : "lazy"}
+              style={{ objectPosition: moment.position || "center center" }}
+            />
             <div className="gallery-card-content">
               <span>{moment.label}</span>
               <h3>{moment.title}</h3>
