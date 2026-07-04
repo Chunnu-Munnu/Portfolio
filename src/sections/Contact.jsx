@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import Alert from "../components/Alert";
-import { Particles } from "../components/Particles";
 import { profile } from "../constants";
 
 const Contact = () => {
@@ -32,13 +31,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative flex items-center c-space section-spacing">
-      <Particles
-        className="absolute inset-0 -z-50"
-        quantity={100}
-        ease={80}
-        color={"#ffffff"}
-        refresh
-      />
+      <div className="pointer-events-none absolute inset-0 -z-50 bg-[radial-gradient(circle_at_30%_25%,rgba(87,219,150,0.12),transparent_28%),radial-gradient(circle_at_78%_70%,rgba(51,194,204,0.12),transparent_26%)]" />
       {showAlert && <Alert type="success" text="Opening your email app." />}
       <div className="mx-auto grid w-full max-w-5xl gap-6 md:grid-cols-[0.9fr_1.1fr]">
         <div className="glass-panel flex flex-col justify-between p-6 md:p-8">
@@ -46,8 +39,8 @@ const Contact = () => {
             <div className="section-kicker">Contact</div>
             <h2 className="mt-4 text-4xl font-bold text-white">Build something precise.</h2>
             <p className="mt-4 leading-7 text-neutral-300">
-              I am open to internship opportunities, AI/product collaborations,
-              data engineering work, and serious hackathon-grade builds.
+              I am open to AI/product collaborations, data engineering work,
+              startup-style builds, and serious hackathon-grade prototypes.
             </p>
           </div>
           <div className="mt-10 space-y-4 text-sm text-neutral-300">

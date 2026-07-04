@@ -1,28 +1,7 @@
-import { useRef } from "react";
-import Card from "../components/Card";
-import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
-import { Frameworks } from "../components/Frameworks";
-import { draggableSkills, profile, skillGroups } from "../constants";
-
-const cardPositions = [
-  { rotate: "7deg", top: "16%", left: "10%" },
-  { rotate: "-10deg", top: "12%", left: "40%" },
-  { rotate: "8deg", top: "28%", left: "67%" },
-  { rotate: "-8deg", top: "46%", left: "6%" },
-  { rotate: "4deg", top: "50%", left: "37%" },
-  { rotate: "-5deg", top: "65%", left: "66%" },
-  { rotate: "10deg", top: "72%", left: "19%" },
-  { rotate: "-7deg", top: "78%", left: "46%" },
-  { rotate: "3deg", top: "32%", left: "24%" },
-  { rotate: "-4deg", top: "34%", left: "52%" },
-  { rotate: "8deg", top: "58%", left: "18%" },
-  { rotate: "-9deg", top: "62%", left: "50%" },
-];
+import { mediaMoments, profile, skillGroups } from "../constants";
 
 const About = () => {
-  const grid2Container = useRef(null);
-
   return (
     <section className="c-space section-spacing" id="about">
       <div className="section-kicker">About</div>
@@ -51,21 +30,21 @@ const About = () => {
         </div>
 
         <div className="grid-default-color grid-2">
-          <div
-            ref={grid2Container}
-            className="relative flex size-full items-center justify-center overflow-hidden"
-          >
-            <p className="text-center text-4xl font-black uppercase tracking-normal text-white/10 md:text-5xl">
-              Build Stack
-            </p>
-            {draggableSkills.map((skill, index) => (
-              <Card
-                key={skill}
-                style={cardPositions[index % cardPositions.length]}
-                text={skill}
-                containerRef={grid2Container}
-              />
-            ))}
+          <div className="relative z-10 flex size-full flex-col justify-between">
+            <div>
+              <p className="headtext">Engineering stack</p>
+              <p className="subtext">
+                Clean, fast, and practical tooling across AI, web, data, cloud-style
+                pipelines, and security-minded product work.
+              </p>
+            </div>
+            <div className="mt-5 grid grid-cols-2 gap-2 text-sm md:grid-cols-3">
+              {["Python", "React", "FastAPI", "dbt", "Airflow", "Spark", "Databricks", "Solidity", "Docker"].map((skill) => (
+                <span className="skill-pill justify-center" key={skill}>
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -77,9 +56,12 @@ const About = () => {
               engineering collaborations.
             </p>
           </div>
-          <figure className="absolute left-[28%] top-[6%] opacity-90">
-            <Globe />
-          </figure>
+          <img
+            src={mediaMoments[4].image}
+            className="absolute inset-y-8 left-[38%] h-[78%] w-[58%] rounded-lg object-cover opacity-75"
+            alt=""
+            loading="lazy"
+          />
         </div>
 
         <div className="grid-special-color grid-4">
@@ -100,9 +82,12 @@ const About = () => {
               engines, OCR tools, and computer vision applications.
             </p>
           </div>
-          <div className="absolute inset-y-0 start-[52%] hidden h-full w-full md:block md:scale-125">
-            <Frameworks />
-          </div>
+          <img
+            src={mediaMoments[0].image}
+            className="absolute inset-y-6 left-[54%] h-[82%] w-[42%] rounded-lg object-cover opacity-75"
+            alt=""
+            loading="lazy"
+          />
         </div>
       </div>
 

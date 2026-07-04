@@ -10,7 +10,7 @@ const HeroText = () => {
   };
 
   return (
-    <div className="hero-copy relative z-10 w-full max-w-4xl">
+    <div className="hero-copy relative z-10">
       <motion.p
         className="eyebrow"
         variants={variants}
@@ -18,11 +18,11 @@ const HeroText = () => {
         animate="visible"
         transition={{ delay: 0.15 }}
       >
-        Software engineer intern at SatSure - PES University CSE
+        Ex intern at SatSure and Corizo.in - YC Startup School India
       </motion.p>
 
       <motion.h1
-        className="mt-5 max-w-3xl text-5xl font-black leading-[0.98] text-white md:text-6xl lg:text-7xl"
+        className="hero-title"
         variants={variants}
         initial="hidden"
         animate="visible"
@@ -35,7 +35,7 @@ const HeroText = () => {
       </motion.h1>
 
       <motion.p
-        className="mt-6 max-w-2xl text-base leading-8 text-neutral-300 sm:text-lg"
+        className="hero-summary"
         variants={variants}
         initial="hidden"
         animate="visible"
@@ -47,7 +47,7 @@ const HeroText = () => {
       </motion.p>
 
       <motion.div
-        className="mt-8 flex flex-col gap-3 md:flex-row md:items-center"
+        className="hero-actions"
         variants={variants}
         initial="hidden"
         animate="visible"
@@ -65,7 +65,7 @@ const HeroText = () => {
       </motion.div>
 
       <motion.div
-        className="mt-10 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4"
+        className="hero-metrics"
         variants={variants}
         initial="hidden"
         animate="visible"

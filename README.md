@@ -1,6 +1,6 @@
 # Amogh Sharma Portfolio
 
-Professional frontend portfolio for Amogh Sharma, a Computer Science Engineering student at PES University and Software Engineer Intern at SatSure. The site highlights AI systems, data engineering, blockchain, computer vision, hackathon wins, and selected projects from the resume.
+Professional frontend portfolio for Amogh Sharma, a Computer Science Engineering student at PES University, ex intern at SatSure, ex intern at Corizo.in, and YC Startup School India participant. The site highlights AI systems, data engineering, blockchain, computer vision, hackathon wins, and selected projects from the resume.
 
 ## Live Preview
 
@@ -24,22 +24,28 @@ http://localhost:5173
 | Framework | React 19, Vite |
 | Styling | Tailwind CSS v4, custom glass UI utilities |
 | Animation | Motion for React |
-| 3D | Three.js, React Three Fiber, Drei |
-| Visual Effects | Canvas particles, Cobe globe, draggable cards |
+| Media | Optimized WebP photos from pitches, demos, hackathons, and MUN |
+| Visual Effects | CSS gradients, hover states, draggable cards |
 | Contact | Frontend-only `mailto:` routing |
 | Deployment | Vercel-ready static frontend |
 
 ## Features
 
-- Animated 3D hero section with responsive desktop and mobile framing.
+- Lightweight photo-led hero section using optimized WebP assets.
 - Sticky glass navigation with mobile drawer.
 - Resume download from `public/assets/Amogh_Sharma_Resume.pdf`.
 - Frontend-only contact form that opens an email draft to `amoghrules20@gmail.com`.
+- Real moments gallery featuring pitches, trophies, demos, hackathons, and MUN recognition.
 - Filterable selected projects section.
-- Satsure internship section with dbt, Airflow, Spark, and Databricks pipeline work.
+- Ex SatSure internship section with dbt, Airflow, Spark, and Databricks pipeline work.
+- Ex Corizo.in internship and YC Startup School India experience.
+- PAYSHIELD AI OPS includes JPMorgan Chase Technology Innovation Forum 2026 India context.
+- Trinetra includes drone-assisted sensing and field demonstration work.
 - Dedicated blockchain project: Missile Command Logging System using Solidity, Python, blockchain audit trails, and ML-based validation.
 - Hackathon, datathon, CTF, and MUN achievement band.
 - Responsive design verified for desktop and mobile.
+- Performance pass completed by removing the old WebGL hero, cobe globe, particle canvas, and unused 3D model.
+- Vercel security headers are configured in `vercel.json`.
 
 ## Project Structure
 
@@ -47,12 +53,11 @@ http://localhost:5173
 public/
   assets/
     Amogh_Sharma_Resume.pdf
+    amogh/
     projects/
     logos/
-  models/
-    tenhun_falling_spaceman_fanart.glb
 src/
-  components/       Reusable UI, 3D, animation, modal, and visual components
+  components/       Reusable UI, animation, modal, and visual components
   constants/        Portfolio content, links, projects, skills, and achievements
   sections/         Page sections such as Hero, About, Projects, Experience, Contact
   App.jsx           Section composition
@@ -99,6 +104,14 @@ Output Directory: dist
 Install Command: npm install
 ```
 
+The included `vercel.json` sets common hardening headers:
+
+- Content Security Policy
+- X-Frame-Options
+- X-Content-Type-Options
+- Referrer-Policy
+- Permissions-Policy
+
 ## Scripts
 
 ```bash
@@ -117,7 +130,7 @@ npm run build
 npm run lint
 ```
 
-Build passes. Lint has no errors; the remaining warnings come from existing animation helpers in the particles and globe components.
+Build passes. Lint has no errors.
 
 ## Links
 

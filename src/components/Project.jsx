@@ -9,15 +9,12 @@ const Project = ({
   href,
   image,
   tags,
-  setPreview,
 }) => {
   const [isHidden, setIsHidden] = useState(false);
   return (
     <>
       <div
-        className="group flex-wrap items-center justify-between gap-6 py-10 sm:flex"
-        onMouseEnter={() => setPreview(image)}
-        onMouseLeave={() => setPreview(null)}
+        className="group grid gap-6 py-10 lg:grid-cols-[1fr_18rem] lg:items-center"
       >
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aqua/80">
@@ -33,9 +30,15 @@ const Project = ({
             ))}
           </div>
         </div>
+        <img
+          src={image}
+          alt=""
+          loading="lazy"
+          className="hidden h-44 w-full rounded-lg border border-white/10 object-cover opacity-85 lg:block"
+        />
         <button
           onClick={() => setIsHidden(true)}
-          className="mt-8 flex cursor-pointer items-center gap-2 rounded-lg border border-white/10 px-4 py-3 text-sm font-medium text-white transition hover:border-aqua/60 hover:bg-white/10 sm:mt-0"
+          className="flex w-fit cursor-pointer items-center gap-2 rounded-lg border border-white/10 px-4 py-3 text-sm font-medium text-white transition hover:border-aqua/60 hover:bg-white/10 lg:col-start-2"
         >
           Read more
           <img src="/assets/arrow-right.svg" className="w-5" alt="" />

@@ -56,6 +56,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -77,11 +78,55 @@ html {
 
 .hero-copy {
   padding-top: 10rem;
+  width: min(100%, 48rem);
 }
 
 @media (min-width: 48rem) {
   .hero-copy {
     padding-top: 12rem;
+  }
+}
+
+.hero-title {
+  margin-top: 1.25rem;
+  max-width: 46rem;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 0.98;
+  color: white;
+}
+
+.hero-summary {
+  margin-top: 1.5rem;
+  max-width: 40rem;
+  color: rgb(212 212 212);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-metrics {
+  margin-top: 2.5rem;
+  display: grid;
+  max-width: 46rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 48rem) {
+  .hero-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero-metrics {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -153,6 +198,48 @@ html {
 .metric-card p {
   @apply mt-1 text-xs font-medium uppercase text-neutral-400;
   letter-spacing: 0.08em;
+}
+
+.gallery-grid {
+  @apply grid gap-4 md:grid-cols-3;
+}
+
+.gallery-card {
+  @apply relative min-h-80 overflow-hidden rounded-lg border border-white/10 bg-white/[0.05] shadow-2xl shadow-black/20;
+}
+
+.gallery-card-wide {
+  @apply md:col-span-2;
+}
+
+.gallery-card img {
+  @apply absolute inset-0 size-full object-cover transition duration-500;
+}
+
+.gallery-card:hover img {
+  @apply scale-105;
+}
+
+.gallery-card::after {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-t from-primary via-primary/45 to-transparent;
+}
+
+.gallery-card-content {
+  @apply absolute inset-x-0 bottom-0 z-10 p-5;
+}
+
+.gallery-card-content span {
+  @apply text-xs font-semibold uppercase text-aqua;
+  letter-spacing: 0.14em;
+}
+
+.gallery-card-content h3 {
+  @apply mt-2 text-2xl font-bold text-white;
+}
+
+.gallery-card-content p {
+  @apply mt-2 max-w-2xl text-sm leading-6 text-neutral-300;
 }
 
 .glass-panel {
