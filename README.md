@@ -1,116 +1,126 @@
-# 🚀 3D Developer Portfolio
+# Amogh Sharma Portfolio
 
-A modern, animated 3D developer portfolio built with React, Three.js, TailwindCSS, and motion effects — designed to help you stand out and showcase your skills creatively.
+Professional frontend portfolio for Amogh Sharma, a Computer Science Engineering student at PES University and Software Engineer Intern at SatSure. The site highlights AI systems, data engineering, blockchain, computer vision, hackathon wins, and selected projects from the resume.
 
-![3d Portfolio Screenshot GitHub](https://github.com/user-attachments/assets/9b0ed20e-074e-4f2a-81d8-20c9da751e9e)
+## Live Preview
 
----
+Run locally:
 
-## 📚 Table of Contents
-
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Assets](#-assets)
-- [Contact Me](#-contact-me)
-- [Suggestions or Feedback](#-suggestions-or-feedback)
-- [Like This Project?](#-like-this-project)
-
----
-
-## ✨ Features
-
-- 🔥 3D visuals powered by **React Three Fiber** and **Drei**
-- ⚡ Smooth transitions and scroll-based animations using **Framer Motion**
-- 🎨 Clean, responsive UI with **TailwindCSS**
-- 💌 Working contact form using **EmailJS**
-- 🧱 Beautiful UI enhancements with **Aceternity UI** and **Magic UI**
-- 🚀 Lightning-fast development with **Vite**
-
----
-
-## 🛠 Tech Stack
-
-| Tech              | Description                           |
-|-------------------|---------------------------------------|
-| React             | Front-end JavaScript library          |
-| Vite              | Fast bundler and dev environment      |
-| TailwindCSS       | Utility-first CSS framework           |
-| React Three Fiber | 3D rendering with Three.js in React   |
-| Drei              | Helpers and abstractions for R3F      |
-| Framer Motion     | Animation library for React           |
-| EmailJS           | Form handling and email integration   |
-| Aceternity UI     | Custom UI components                  |
-| Magic UI          | Prebuilt UI elements and design extras|
-
----
-
-## 📁 Project Structure
-
-```bash
-├── public/
-│   ├── assets/             # Images, textures, models
-│   ├── models/             # 3D Astronaut model
-│   └── vite.svg
-├── src/
-│   ├── components/         # Reusable components
-│   ├── constants/          # Reusable datas
-│   ├── sections/           # Portfolio sections (Hero, About, etc.)
-│   ├── App.jsx             # Main app file
-│   ├── index.css           # Tailwind css
-│   └── main.jsx            # Entry point
-├── tailwind.config.js
-└── vite.config.js
-```
-
----
-
-## 🚀 Getting Started
-1. Clone the Repository
-```bash
-git clone https://github.com/Ali-Sanati/Portfolio.git
-cd Portfolio
-```
-2. Install Dependencies
 ```bash
 npm install
-```
-3. Run the Development Server
-```bash
 npm run dev
 ```
-The app will be available at http://localhost:5173.
 
----
+The app runs at:
 
-## 🔗 Assets
-Assets used in the project can be found [here](https://github.com/user-attachments/files/19820923/public.zip)
+```text
+http://localhost:5173
+```
 
----
+## Tech Stack
 
-## 📬 Contact Me
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/ali.sanatidev/reels/) 
-[![Static Badge](https://img.shields.io/badge/Youtube-%23FF0033?style=flat&logo=youtube)](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ali-sanati/) 
+| Layer | Tools |
+| --- | --- |
+| Framework | React 19, Vite |
+| Styling | Tailwind CSS v4, custom glass UI utilities |
+| Animation | Motion for React |
+| 3D | Three.js, React Three Fiber, Drei |
+| Visual Effects | Canvas particles, Cobe globe, draggable cards |
+| Contact | Frontend-only `mailto:` routing |
+| Deployment | Vercel-ready static frontend |
 
----
+## Features
 
-## 💡 Suggestions or Feedback?
-Leave a comment on the [YouTube video](https://youtu.be/S9UQItTpwUQ) or open an issue here on GitHub.<br/>
-👉 What should I build next?
+- Animated 3D hero section with responsive desktop and mobile framing.
+- Sticky glass navigation with mobile drawer.
+- Resume download from `public/assets/Amogh_Sharma_Resume.pdf`.
+- Frontend-only contact form that opens an email draft to `amoghrules20@gmail.com`.
+- Filterable selected projects section.
+- Satsure internship section with dbt, Airflow, Spark, and Databricks pipeline work.
+- Dedicated blockchain project: Missile Command Logging System using Solidity, Python, blockchain audit trails, and ML-based validation.
+- Hackathon, datathon, CTF, and MUN achievement band.
+- Responsive design verified for desktop and mobile.
 
-- A beautiful Landing Page
+## Project Structure
 
-- A complete E-commerce site
+```text
+public/
+  assets/
+    Amogh_Sharma_Resume.pdf
+    projects/
+    logos/
+  models/
+    tenhun_falling_spaceman_fanart.glb
+src/
+  components/       Reusable UI, 3D, animation, modal, and visual components
+  constants/        Portfolio content, links, projects, skills, and achievements
+  sections/         Page sections such as Hero, About, Projects, Experience, Contact
+  App.jsx           Section composition
+  index.css         Tailwind theme and custom design utilities
+  main.jsx          React entry point
+```
 
-- A fun App Clone (YouTube, Netflix, etc.)
+## Editing Content
 
-Or another interactive Portfolio
+Most portfolio content is centralized in:
 
-Let me know!
+```text
+src/constants/index.js
+```
 
----
+Update this file to change:
 
-## ⭐ Like This Project?
-Star the repo and [subscribe](https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA??sub_confirmation=1) to the YouTube channel for more dev content!
+- Name, email, GitHub, LinkedIn, resume path
+- Navigation items
+- Skill groups
+- Featured projects
+- Experience timeline
+- Achievement cards
+- Footer socials
+
+## Contact Flow
+
+There is no backend and no EmailJS dependency. The contact form creates a mail draft with:
+
+```text
+mailto:amoghrules20@gmail.com
+```
+
+This keeps the portfolio static, simple, and easy to deploy on Vercel.
+
+## Deployment On Vercel
+
+Use these settings:
+
+```text
+Framework Preset: Vite
+Build Command: npm run build
+Output Directory: dist
+Install Command: npm install
+```
+
+## Scripts
+
+```bash
+npm run dev      # Start local dev server
+npm run build    # Create production build
+npm run preview  # Preview production build locally
+npm run lint     # Run ESLint
+```
+
+## Verification
+
+Current checks:
+
+```bash
+npm run build
+npm run lint
+```
+
+Build passes. Lint has no errors; the remaining warnings come from existing animation helpers in the particles and globe components.
+
+## Links
+
+- GitHub: https://github.com/Chunnu-Munnu
+- LinkedIn: https://www.linkedin.com/in/amogh-sharma-76ba49253/
+- Email: amoghrules20@gmail.com
